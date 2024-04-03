@@ -56,7 +56,7 @@ const FavoritesPage = ({ navigation }) => {
         </TouchableOpacity>
       }
 
-      {item.name === "airlines" &&
+      {item.name === "airline" &&
         <TouchableOpacity onPress={() => navigation.navigate('Airline', { airline_id: item.item_id, user_id: user.id })}>
           <View style={styles.user}>
             <Image
