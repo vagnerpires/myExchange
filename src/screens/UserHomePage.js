@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { StyleSheet, View, Text, Image, TextInput, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, TextInput, FlatList, TouchableOpacity, Linking } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -112,6 +112,22 @@ const UserPage = () => {
         }
     }
 
+    const openWhatsAppChat = () => {
+        let phoneNumber = userData.whatsapp;
+        let message = 'Hello, I would like to chat with you on WhatsApp!';
+        let url = `whatsapp://send?text=${encodeURIComponent(message)}&phone=${phoneNumber}`;
+
+        Linking.canOpenURL(url)
+            .then((supported) => {
+                if (!supported) {
+                    console.log("Can't handle url: " + url);
+                } else {
+                    return Linking.openURL(url);
+                }
+            })
+            .catch((err) => console.error('An error occurred', err));
+    }
+
     const rating = calcRating(comments)
 
 
@@ -138,6 +154,10 @@ const UserPage = () => {
             <View style={styles.separator}></View>
 
             <Text style={styles.location}>{userData.origin_city}, {userData.origin_country}</Text>
+
+            <TouchableOpacity onPress={openWhatsAppChat}>
+                <Image source={require('../../assets/whatsapp.png')} style={styles.whatsappLogo} />
+            </TouchableOpacity>
 
             <View style={styles.separator2}></View>
 
@@ -331,7 +351,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#fff',
         fontWeight: 'bold',
-    }
+    },
+    whatsappLogo: {
+        position: 'absolute',
+        width: 50,
+        height: 50,
+        left: 320,
+        top: 80,
+    },
 });
 
 
