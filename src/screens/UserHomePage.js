@@ -36,8 +36,8 @@ const UserPage = () => {
                         ...prev,
                         user_id: user.id,
                         photo: user.photo,
-                        user_name: user.name,
-                        user_target: response.name
+                        user_name: user.name, 
+                        user_target: response.name,
                     }))
                 })
         }
@@ -153,7 +153,8 @@ const UserPage = () => {
 
             <View style={styles.separator}></View>
 
-            <Text style={styles.location}>{userData.origin_city}, {userData.origin_country}</Text>
+            <Text style={styles.location}>Origin: {userData.origin_city}, {userData.origin_country}</Text>
+            <Text style={styles.location2}>Destination: {userData.destination_city}, {userData.destination_country}</Text>
 
             <TouchableOpacity onPress={openWhatsAppChat}>
                 <Image source={require('../../assets/whatsapp.png')} style={styles.whatsappLogo} />
@@ -259,7 +260,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         color: 'black',
         marginHorizontal: 25,
-        marginTop: 355,
+        marginTop: 340,
+        fontSize: 18,
+    },
+    location2: {
+        position: 'absolute',
+        color: 'black',
+        marginHorizontal: 25,
+        marginTop: 370,
         fontSize: 18,
     },
     separator2: {

@@ -2,7 +2,7 @@ export const useConvertDate = () => {
 
     const general = (date) => {
         const split = date.split("T")[0].split("-")
-        return `${split[0]}-${split[1]}-${split[2]}` // YYYY-MM-DD
+        return `${split[2]}-${split[1]}-${split[0]}` 
     }
 
     const yearCatch = (date) => {
@@ -10,11 +10,15 @@ export const useConvertDate = () => {
         return parseInt(split[0])
     }
 
-    const age = (date) => {
-        const dateConv = general(date)
-        const year = yearCatch(dateConv)
+    const age = (birthdate) => {
         const today = new Date();
-        return today.getFullYear() - year
+        const birthDate = new Date(birthdate);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
     }
 
     return {
