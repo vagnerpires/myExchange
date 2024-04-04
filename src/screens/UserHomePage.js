@@ -17,6 +17,7 @@ const UserPage = () => {
     const { findUserHome } = useUsersClient()
     const { createOneComment, findComments } = useCommentsClient()
     const user = useContext(userContext)
+    const general = (date) => new Date(date).toLocaleDateString()
 
     // states
     const [liked, setLiked] = useState(false);
@@ -36,7 +37,8 @@ const UserPage = () => {
                         ...prev,
                         user_id: user.id,
                         photo: user.photo,
-                        user_name: user.name, 
+                        user_name: user.name,
+                        date_arrival: general(new Date()),
                         user_target: response.name,
                     }))
                 })
@@ -145,7 +147,11 @@ const UserPage = () => {
                 <Text style={styles.reviews}>{comments.length} Reviews</Text>
             </View>
 
-            <Text style={styles.airlineTitle}>{userData.name}</Text>
+            <Text style={styles.schoolTitle}>{userData.school_id}</Text>
+            <Text style={styles.airlineTitle}>{userData.airlines_id}</Text>
+            <Text style={styles.date_arrivalTitle}>{general(userData.date_arrival)}</Text>
+
+            <Text style={styles.nameTitle}>{userData.name}</Text>
 
             <TouchableOpacity style={styles.likeButton} onPress={toggleLike}>
                 <Icon name="heart" size={40} color={liked ? 'red' : 'grey'} />
@@ -215,6 +221,27 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#30FFAE',
     },
+    schoolTitle: {
+        position: 'absolute',
+        marginTop: 80,
+        fontWeight: 'normal',
+        fontSize: 14,
+        marginHorizontal: 20,
+    },
+    airlineTitle: {
+        position: 'absolute',
+        marginTop: 100,
+        marginHorizontal: 20,
+        fontWeight: 'normal',
+        fontSize: 14,
+    },
+    date_arrivalTitle: {
+        position: 'absolute',
+        marginTop: 120,
+        marginHorizontal: 20,
+        fontWeight: 'normal',
+        fontSize: 14,
+    },
     userImage: {
         alignSelf: 'center',
         marginTop: 59,
@@ -236,7 +263,7 @@ const styles = StyleSheet.create({
     reviews: {
         color: 'grey',
     },
-    airlineTitle: {
+    nameTitle: {
         position: 'absolute',
         marginTop: 270,
         fontWeight: 'bold',
