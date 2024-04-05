@@ -68,7 +68,6 @@ export default function HomePage() {
             .catch((err) => console.error('An error occurred', err));
     }
 
-    // const userFlag = setFlag(user) 
     // functions end ----------------------------
 
 
@@ -102,7 +101,8 @@ export default function HomePage() {
             <Text style={[styles.userName, styles.userAge]}>{userData?.name} - {parseInt(userData.age) ? userData.age : "Age"}</Text>
 
             <View style={styles.separator}></View>
-            <Image source={require('../../assets/flag.png')} style={styles.userCountry} />
+            <Image source={require('../../assets/pin.png')} style={styles.userCountry} />
+            <Text style={styles.userDestination}>{userData?.destination_country}</Text>
 
             <Text style={styles.userCity}>{userData?.destination_city}</Text>
 
@@ -227,9 +227,16 @@ const styles = {
     userCountry: {
         position: 'absolute',
         width: 80,
-        height: 50,
-        marginTop: 560,
+        height: 60,
+        marginTop: 530,
         left: 40,
+    },
+    userDestination: {
+        position: 'absolute',
+        marginTop: 590,
+        fontSize: 22,
+        left: 45,
+        color: 'black',
     },
     userCity: {
         position: 'absolute',
