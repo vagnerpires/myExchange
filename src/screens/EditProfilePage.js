@@ -285,8 +285,8 @@ const EditProfilePage = () => {
 const styles = {
     contentContainer: {
         flexGrow: 1,
-        alignItems: 'center', // Alinha os filhos do ScrollView no centro do eixo transversal (horizontal)
-        justifyContent: 'center', // Justifica o conteúdo no centro do eixo principal (vertical)
+        alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: '#30FFAE',
         padding: 20,
     },
@@ -312,13 +312,13 @@ const styles = {
         backgroundColor: '#fff',
     },
     button: {
-        width: '50%', // Button width is half of the container width
+        width: '50%',
         height: 37,
         backgroundColor: '#2B8B5D',
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 15, // Add space above the button
+        marginTop: 15,
     },
     buttonText: {
         fontSize: 20,
@@ -326,9 +326,9 @@ const styles = {
         fontWeight: 'bold',
     },
     datePickerInput: {
-        justifyContent: 'center', // Center the text inside the input
-        height: 43, // Set the input height
-        marginTop: 15, // Add space between inputs
+        justifyContent: 'center',
+        height: 43,
+        marginTop: 15,
     },
     dateText: {
         fontSize: 15,
@@ -385,7 +385,7 @@ const styles = {
         borderWidth: 2,
         borderRadius: 5,
         marginTop: 15,
-        justifyContent: 'center', // Centraliza o texto verticalmente
+        justifyContent: 'center',
         backgroundColor: '#fff',
     },
     uploadButtonText: {

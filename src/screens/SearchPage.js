@@ -179,7 +179,6 @@ const Footer = ({ navigation }) => {
     );
 };
 
-// Adicionei o StyleSheet para organizar melhor os estilos.
 const styles = StyleSheet.create({
     container: {
         flex: 1,

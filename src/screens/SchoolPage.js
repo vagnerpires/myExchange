@@ -323,13 +323,13 @@ const styles = StyleSheet.create({
     right: 20,
   },
   button: {
-    width: '50%', // Button width is half of the container width
+    width: '50%',
     height: 37,
     backgroundColor: '#2B8B5D',
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 15, // Add space above the button
+    marginTop: 15,
   },
   buttonText: {
     fontSize: 20,

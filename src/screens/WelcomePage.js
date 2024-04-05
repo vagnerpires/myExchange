@@ -39,18 +39,18 @@ const styles = StyleSheet.create({
   circle: {
     position: 'absolute',
     top: 250,
-    width: 300, // Ajuste conforme necessário
-    height: 300, // Ajuste conforme necessário
-    borderRadius: 150, // Deve ser a metade da largura/altura para formar um círculo
+    width: 300,
+    height: 300,
+    borderRadius: 150,
     backgroundColor: 'white',
-    zIndex: 0, // Para colocar atrás do logo
+    zIndex: 0,
   },
   logo: {
     top: 126,
     width: 440,
     height: 440,
     resizeMode: 'contain',
-    zIndex: 1, // Para sobrepor o círculo
+    zIndex: 1,
     position: 'relative',
   },
   button: {
@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#2B8B5D',
     borderRadius: 5,
-    justifyContent: 'center', // Centraliza o texto verticalmente
-    alignItems: 'center', // Centraliza o texto horizontalmente
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 20,
   },
   buttonText: {

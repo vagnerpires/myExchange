@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 70,
-    backgroundColor: '#30FFAE', // Adjust the color to match the provided image
+    backgroundColor: '#30FFAE',
   },
   headerTitle: {
     fontSize: 24,
@@ -148,17 +148,14 @@ const styles = StyleSheet.create({
 
 const Footer = ({ navigation }) => {
   const handleHomePage = () => {
-    // Navegar para a homepage
     navigation.navigate('Home');
   };
 
   const handleSearchPage = () => {
-    // Navegar para a página de busca
     navigation.navigate('Search');
   };
 
   const handleFavoritesPage = () => {
-    // Navegar para a página de favoritos
     navigation.navigate('Favorites');
   };
 
