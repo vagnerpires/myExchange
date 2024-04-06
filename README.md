@@ -17,9 +17,9 @@ An application for exchange students that allows the creation of profiles, shari
 ## Quick Start
 
 ```
-  git clone https://github.com/vagnerpires/myexchange.git
+  git clone https://github.com/vagnerpires/myExchange.git
 
-  cd myexchange
+  cd myExchange
 
   npm install --global expo-cli // if you don't have expo installed
   
