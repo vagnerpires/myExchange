@@ -2,6 +2,7 @@ import { supabase } from "../../../models/supabase/client"
 
 const useUsersClient = () => {
 
+    // find all users
     const findAll = async () => {
         const { data, error } = await supabase
             .from('users')
@@ -10,6 +11,7 @@ const useUsersClient = () => {
         return data
     }
 
+    // find one user
     const findOne = async (value) => {
         const { data, error } = await supabase
             .from('users')
@@ -19,6 +21,7 @@ const useUsersClient = () => {
         return data[0]
     }
 
+    // find one user
     const findUserHome = async (value) => {
         const { data, error } = await supabase
             .from('users')
@@ -28,6 +31,7 @@ const useUsersClient = () => {
         return data[0]
     }
 
+    // create one user
     const createOne = async (value) => {
         const { data, error } = await supabase
             .from('users')
@@ -42,6 +46,7 @@ const useUsersClient = () => {
         if (error) throw error
     }
 
+    // update one user
     const update = async (value) => {
         const { data, error } = await supabase
             .from('users')
@@ -51,7 +56,7 @@ const useUsersClient = () => {
         if (error) throw error
     }
 
-
+    // destroy one user
     const destroy = async (value) => {
         const { error } = await supabase
             .from('users')
@@ -59,7 +64,6 @@ const useUsersClient = () => {
             .eq('id', value)
         if (error) throw error
     }
-
 
     return {
         findAll,

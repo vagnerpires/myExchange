@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-// hooks
 import useUsersClient from '../services/supabaseStore/users/userStore';
 
 
@@ -30,7 +29,7 @@ export default function RegisterPage() {
     }))
   }
 
-
+  //register logic
   const handleRegister = async () => {
     await createOne(formData)
       .then(() => navigation.navigate("Login"))
@@ -39,7 +38,7 @@ export default function RegisterPage() {
       })
   }
 
-
+  //JSX
   return (
     <View style={styles.container}>
       <Text style={styles.title}>REGISTER</Text>
@@ -77,6 +76,7 @@ export default function RegisterPage() {
   );
 }
 
+//css
 const styles = StyleSheet.create({
   container: {
     flex: 1,

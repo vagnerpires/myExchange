@@ -72,7 +72,7 @@ const EditProfilePage = () => {
         setIsLoading(false)
     }, [userID]);
 
-
+    // update user profile
     const saveProfile = async () => {
         await update(dataForm)
             .then(() => {
@@ -91,6 +91,7 @@ const EditProfilePage = () => {
         }))
     }
 
+    // upload photo
     const handleChoosePhoto = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -105,6 +106,7 @@ const EditProfilePage = () => {
         }
     }
 
+    // date picker
     const handleDateChange = (event, selectedDate) => {
         const currentDate = selectedDate || dataForm.birthdate
         setShowDatePicker(Platform.OS === 'ios');
@@ -117,6 +119,7 @@ const EditProfilePage = () => {
         onChangeForm("date_arrival", currentDate);
     };
 
+    // select school and airlines
     const handleSelectSchool = (schoolName) => {
         onChangeForm("school_id", schoolName);
         setShowSchoolPicker(false);
@@ -127,6 +130,7 @@ const EditProfilePage = () => {
         setShowAirlinesPicker(false);
     };
 
+    //JSX
     return (
         <KeyboardAvoidingView
             style={{ flex: 1 }}
@@ -282,6 +286,7 @@ const EditProfilePage = () => {
     );
 };
 
+// CSS
 const styles = {
     contentContainer: {
         flexGrow: 1,

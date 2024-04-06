@@ -24,6 +24,7 @@ const FavoritesPage = ({ navigation }) => {
     getFavorites();
   }, []);
 
+  // render favorites (users, schools, airlines)
   const renderItems = ({ item }) => (
     <View>
       {item.name === "user" &&
@@ -72,6 +73,7 @@ const FavoritesPage = ({ navigation }) => {
     </View>
   );
 
+  //JSX
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -89,6 +91,7 @@ const FavoritesPage = ({ navigation }) => {
   );
 };
 
+//CSS
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -146,6 +149,7 @@ const styles = StyleSheet.create({
   },
 });
 
+//Footer
 const Footer = ({ navigation }) => {
   const handleHomePage = () => {
     navigation.navigate('Home');
@@ -159,6 +163,7 @@ const Footer = ({ navigation }) => {
     navigation.navigate('Favorites');
   };
 
+  //footer JSX
   return (
     <View style={footerStyles.container}>
       <TouchableOpacity onPress={handleHomePage} style={footerStyles.footerItem}>
@@ -180,6 +185,7 @@ const Footer = ({ navigation }) => {
   );
 };
 
+//Footer CSS
 const footerStyles = {
   container: {
     flexDirection: 'row',

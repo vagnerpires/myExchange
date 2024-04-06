@@ -50,6 +50,7 @@ const SearchPage = ({ navigation }) => {
         getData()
     }, [filterType, searchText])
 
+    //search function
     const handleSearch = (text) => {
         setSearchText(text)
         const filter = text
@@ -59,6 +60,7 @@ const SearchPage = ({ navigation }) => {
         }
     };
 
+    //render items (users, schools, airlines)
     const renderItems = ({ item }) => (
         <View>
             {filterType === "users" &&
@@ -108,6 +110,7 @@ const SearchPage = ({ navigation }) => {
 
     );
 
+    //JSX
     return (
         <View style={styles.container}>
             <View style={styles.searchBarContainer}>
@@ -145,6 +148,7 @@ const SearchPage = ({ navigation }) => {
     );
 };
 
+//footer navigation
 const Footer = ({ navigation }) => {
     const handleHomePage = () => {
         navigation.navigate('Home');
@@ -158,6 +162,7 @@ const Footer = ({ navigation }) => {
         navigation.navigate('Favorites');
     };
 
+    //footer JSX
     return (
         <View style={footerStyles.container}>
             <TouchableOpacity onPress={handleHomePage} style={footerStyles.footerItem}>
@@ -179,6 +184,7 @@ const Footer = ({ navigation }) => {
     );
 };
 
+//CSS
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -240,6 +246,7 @@ const styles = StyleSheet.create({
     },
 });
 
+//footer CSS
 const footerStyles = {
     container: {
         flexDirection: 'row',

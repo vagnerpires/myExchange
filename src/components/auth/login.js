@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { userContextProps } from "../../context/userContext"
 import { supabase } from "../../models/supabase/client"
 
+//hook
 const useAuth = () => {
 
     const [userID, setUserID] = useContext(userContextProps)
@@ -12,6 +13,7 @@ const useAuth = () => {
 
     }
 
+    //user by email using Supabase
     const findOne = async (email) => {
         const { data, error } = await supabase
             .from('users')
@@ -21,6 +23,7 @@ const useAuth = () => {
         return data[0]
     }
 
+    //authenticates a user
     const auth = async (request) => {
         const { email, password } = request
 
@@ -36,6 +39,7 @@ const useAuth = () => {
         return false
     }
 
+    //Logs out the user
     const logout = async () => setUserID(null)
 
     return {

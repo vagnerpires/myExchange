@@ -2,12 +2,12 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
-
 export default function WelcomePage() {
 
   // hooks
   const navigation = useNavigation();
 
+  //JSX
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Let's Get Started!</Text>
@@ -24,6 +24,7 @@ export default function WelcomePage() {
   )
 }
 
+//CSS
 const styles = StyleSheet.create({
   container: {
     flex: 1,

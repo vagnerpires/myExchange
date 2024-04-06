@@ -16,10 +16,12 @@ import { userContext } from '../context/userContext';
 
 const Stack = createNativeStackNavigator()
 
+//navigation between pages
 export default function AppNavigation() {
 
   const userID = useContext(userContext)
 
+  //if user is logged in
   if (userID) {
     return (
       <NavigationContainer>
@@ -36,7 +38,7 @@ export default function AppNavigation() {
     )
   }
 
-
+  //if user is not logged in
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Welcome'>

@@ -28,6 +28,7 @@ const AirLinePage = () => {
 
   // functions
   useEffect(() => {
+    // Fetches data from the database
     async function getAirline() {
       await findOneAirline(route.params?.airline_id)
         .then((response) => {
@@ -73,6 +74,7 @@ const AirLinePage = () => {
     getComments()
   }, [liked, refresh]);
 
+  //comment render
   const renderComment = ({ item }) => (
     <View style={styles.commentsWrapper}>
       <Image source={{ uri: `data:image/png;base64,${item.photo}` }} style={styles.profilePic} />
@@ -86,6 +88,7 @@ const AirLinePage = () => {
     </View>
   );
 
+  // like button
   const toggleLike = async () => {
     if (!liked) {
       await createOneFavorite({ name: "airline", item_id: airlineData.name, user_id: route.params?.user_id })
@@ -119,9 +122,10 @@ const AirLinePage = () => {
     }
   }
 
+  // rating
   const rating = calcRating(comments)
 
-
+  // JSX
   return (
     <View style={styles.container}>
 
@@ -192,7 +196,7 @@ const AirLinePage = () => {
   );
 };
 
-
+// CSS
 const styles = StyleSheet.create({
   container: {
     flex: 1,

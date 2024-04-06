@@ -39,6 +39,7 @@ const SchoolPage = () => {
         })
     }
 
+    // get user
     async function getUser() {
       await findOne(route.params?.user_id)
         .then((response) => {
@@ -51,6 +52,7 @@ const SchoolPage = () => {
         })
     }
 
+    // get favorite
     async function getFavorite() {
       await findOneFavorite(route.params?.school_id, route.params?.user_id)
         .then((response) => {
@@ -59,6 +61,7 @@ const SchoolPage = () => {
         })
     }
 
+    // get comments
     async function getComments() {
       await findComments("school", route.params?.school_id)
         .then((response) => {
@@ -73,6 +76,7 @@ const SchoolPage = () => {
     getComments()
   }, [liked, refresh]);
 
+  // comments
   const renderComment = ({ item }) => (
     <View style={styles.commentsWrapper}>
       <Image source={{ uri: `data:image/png;base64,${item.photo}` }} style={styles.profilePic} />
@@ -86,6 +90,7 @@ const SchoolPage = () => {
     </View>
   );
 
+  // like function
   const toggleLike = async () => {
     if (!liked) {
       await createOneFavorite({ name: "school", item_id: schoolData.name, user_id: route.params?.user_id })
@@ -119,9 +124,10 @@ const SchoolPage = () => {
     }
   }
 
+  // rating
   const rating = calcRating(comments)
 
-
+  // JSX
   return (
     <View style={styles.container}>
 
@@ -192,7 +198,7 @@ const SchoolPage = () => {
   );
 };
 
-
+// CSS
 const styles = StyleSheet.create({
   container: {
     flex: 1,

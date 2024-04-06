@@ -65,6 +65,7 @@ const UserPage = () => {
         getComments()
     }, [liked, refresh]);
 
+    // comments
     const renderComment = ({ item }) => (
         <View style={styles.commentsWrapper}>
             <Image
@@ -81,6 +82,7 @@ const UserPage = () => {
         </View>
     );
 
+    // like function
     const toggleLike = async () => {
         if (!liked) {
             await createOneFavorite({ name: "user", item_id: userData.name, user_id: user.id })
@@ -114,6 +116,7 @@ const UserPage = () => {
         }
     }
 
+    // open whatsapp
     const openWhatsAppChat = () => {
         let phoneNumber = userData.whatsapp;
         let message = 'Hello, I would like to chat with you on WhatsApp!';
@@ -130,9 +133,10 @@ const UserPage = () => {
             .catch((err) => console.error('An error occurred', err));
     }
 
+    // rating
     const rating = calcRating(comments)
 
-
+    // JSX
     return (
         <View style={styles.container}>
 
@@ -215,7 +219,7 @@ const UserPage = () => {
     );
 };
 
-
+// CSS
 const styles = StyleSheet.create({
     container: {
         flex: 1,

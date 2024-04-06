@@ -2,6 +2,7 @@ import { supabase } from "../../../models/supabase/client"
 
 const useSchoolsClient = () => {
 
+    // find all schools
     const findSchools = async () => {
         const { data, error } = await supabase
             .from('schools')
@@ -10,6 +11,7 @@ const useSchoolsClient = () => {
         return data
     }
 
+    // find one school
     const findOneSchool = async (value) => {
         const { data, error } = await supabase
             .from('schools')
@@ -19,12 +21,10 @@ const useSchoolsClient = () => {
         return data[0]
     }
 
-
     return {
         findSchools,
         findOneSchool
     }
-
 }
 
 export default useSchoolsClient

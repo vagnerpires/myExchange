@@ -2,6 +2,7 @@ import { supabase } from "../../../models/supabase/client"
 
 const useAirlinesClient = () => {
 
+    // find all airlines
     const findAirLines = async () => {
         const { data, error } = await supabase
             .from('airlines')
@@ -10,6 +11,7 @@ const useAirlinesClient = () => {
         return data
     }
 
+    // find one airline
     const findOneAirline = async (value) => {
         const { data, error } = await supabase
             .from('airlines')
@@ -18,7 +20,6 @@ const useAirlinesClient = () => {
         if (error) throw error
         return data[0]
     }
-
 
     return {
         findAirLines,

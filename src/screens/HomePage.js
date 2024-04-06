@@ -22,7 +22,7 @@ export default function HomePage() {
     // states
     const [userData, setUserData] = useState({});
 
-    // functions start ----------------------------
+    // functions
     useEffect(() => {
         async function getUser() {
             await findOne(userID.id)
@@ -47,11 +47,13 @@ export default function HomePage() {
         getUser()
     }, [userID]);
 
+    //logout function
     const handleLogout = async () => {
         logout()
         navigation.navigate("Login")
     }
 
+    //open whatsapp
     const openWhatsAppChat = () => {
         let phoneNumber = userData.whatsapp;
         let message = 'Hello, I would like to chat with you on WhatsApp!';
@@ -68,10 +70,8 @@ export default function HomePage() {
             .catch((err) => console.error('An error occurred', err));
     }
 
-    // functions end ----------------------------
 
-
-    // navigates start -------------------------
+    // navigates
     const handleEditProfile = () => {
         navigation.navigate('Profile');
     };
@@ -83,8 +83,8 @@ export default function HomePage() {
     const handleNavigateToAirline = () => {
         navigation.navigate('Airline', { airline_id: userData.airlines_id, user_id: userData.id });
     };
-    // navigates end -------------------------
 
+    // JSX
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity onPress={handleLogout} style={styles.logout}>
@@ -130,6 +130,7 @@ export default function HomePage() {
     )
 }
 
+//footer
 const Footer = ({ navigation }) => {
     const handleHomePage = () => {
         navigation.navigate('Home');
@@ -164,6 +165,7 @@ const Footer = ({ navigation }) => {
     );
 };
 
+//css
 const styles = {
     container: {
         flex: 1,
@@ -297,6 +299,7 @@ const styles = {
     },
 };
 
+//footer css
 const footerStyles = {
     container: {
         flexDirection: 'row',

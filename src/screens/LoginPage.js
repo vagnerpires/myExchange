@@ -18,6 +18,7 @@ export default function LoginPage() {
 
 
   // functions
+  // login logic
   const handleLogin = async () => {
     if (email && password) {
       try {
@@ -30,6 +31,7 @@ export default function LoginPage() {
     }
   }
 
+  //JSX
   return (
     <View style={styles.container}>
       <View style={styles.circle} />
@@ -56,6 +58,7 @@ export default function LoginPage() {
   );
 };
 
+//css
 const styles = StyleSheet.create({
   container: {
     flex: 1,

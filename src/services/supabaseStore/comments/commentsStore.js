@@ -2,6 +2,7 @@ import { supabase } from "../../../models/supabase/client"
 
 const useCommentsClient = () => {
 
+    // find all comments
     const findComments = async (type, id) => {
         if (type === "school") {
             console.log(id)
@@ -30,6 +31,7 @@ const useCommentsClient = () => {
         }
     }
 
+    // find one comment
     const findOneComment = async (school_id, user_id) => {
         const { data, error } = await supabase
             .from('comments')
@@ -40,6 +42,7 @@ const useCommentsClient = () => {
         return data[0]
     }
 
+    // create one comment
     const createOneComment = async (value) => {
         const { data, error } = await supabase
             .from('comments')
@@ -48,6 +51,7 @@ const useCommentsClient = () => {
         if (error) throw error
     }
 
+    // destroy one comment
     const destroyComment = async (value) => {
         const { error } = await supabase
             .from('comments')
